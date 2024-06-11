@@ -1,4 +1,6 @@
-﻿namespace Exceptions
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Exceptions
 {
     internal class Program
     {
@@ -6,11 +8,12 @@
         {
             try
             {
-                int value = Int32.Parse("abc");
+                throw new CustomException("Houston an a un problème!",DateTime.Now);
             }
-            catch (Exception ex)
+            catch (CustomException ex)
             {
-                throw new CustomException("Houston ? On a un problème !",DateTime.Now);
+                Console.WriteLine($"Message: {ex.Data["Message"]}");
+                Console.WriteLine($"Additional data: {ex.Data["Date"]}");
             }
         }
 

@@ -10,10 +10,15 @@ namespace Exceptions
     {
 
         public DateTime Date { get; }
+        public string Message { get; }
         public CustomException(string message ,DateTime date)
         {
+            
             Date = date;
+            Message=message;
             base.Data.Add("Date", Date);
+            base.Data.Add("Message", Message);
+           
         }
     }
 }
